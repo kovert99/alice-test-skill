@@ -1,0 +1,11 @@
+{
+  "name": "alice-geo-search-skill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kovert99/alice-test-skill.git",
+  "author": "Arthur <45287989+kovert99@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "micro": "^9.3.4"
+  }
+}
