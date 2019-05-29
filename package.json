@@ -5,7 +5,14 @@
   "repository": "https://github.com/kovert99/alice-test-skill.git",
   "author": "Arthur <45287989+kovert99@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  },
   "dependencies": {
     "micro": "^9.3.4"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
   }
 }
