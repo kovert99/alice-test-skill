@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "env": {
+    "YANDEX_MAPS_API_KEY": "@yandex-maps-api-key"
+  }
+}
