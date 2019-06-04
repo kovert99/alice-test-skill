@@ -6,18 +6,20 @@ require('dotenv').config();
 module.exports = async (req, res) => {
 	const { request, session, version } = await json(req);
 	const { command } = request;
+	let clearCommand = command.toLowerCase();
 
 	let vehicleNumber, clearVehicleNumber, responseText;
 
-	if (!command) responseText = 'Здравствуйте, я помогу вам найти местонахождение автомобиля по его гос-номеру. Например, спросите меня: где к 123 м н';
+	if (!command) responseText = 'Здравствуйте, я помогу вам найти местонахождение автомобиля по его гос-номеру. Например, спросите меня: где находится К-123-М-Н';
+	else if (clearCommand.indexOf('помощь') !== -1 || clearCommand.indexOf('умее') !== -1 || clearCommand.indexOf('делае') !== -1) responseText = 'Я назову текущее местонахождение автомобиля по его гос-номеру. Например, спросите меня: где К-123-М-Н';
 	else {
-		commandParts = command.split('где');
+		commandParts = command.split('находится');
 
 		if (commandParts[1]) {
 			vehicleNumber = commandParts[1].toString();
-			clearVehicleNumber = vehicleNumber.split(' ').join('');
+			clearVehicleNumber = vehicleNumber.split(' ').join('').split('-').join('');
 			
-			if (!clearVehicleNumber || clearVehicleNumber.length != 6) responseText = 'Гос-номер автомобиля указан не верно. Пример правильного номера: к 123 м н';
+			if (!clearVehicleNumber || clearVehicleNumber.length != 6) responseText = 'Гос-номер автомобиля указан не верно. Пример правильного номера: К-123-М-Н';
 			else {
 				// демо-данные
 				const vehicle = {
