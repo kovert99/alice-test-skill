@@ -1,0 +1,1 @@
+```now secret add yandex-maps-api-key {API_KEY}```
